@@ -1,4 +1,6 @@
 const Item = require('./models/Item');
+const Promotion = require('./models/Promotion');
+
 function loadAllItems() {
   return [
     new Item('ITEM000000', '可口可乐', '瓶', 3.00),
@@ -11,16 +13,7 @@ function loadAllItems() {
 }
 
 function loadPromotions() {
-  return [
-    {
-      type: 'BUY_TWO_GET_ONE_FREE',
-      barcodes: [
-        'ITEM000000',
-        'ITEM000001',
-        'ITEM000005'
-      ]
-    }
-  ];
+  return [new Promotion('BUY_TWO_GET_ONE_FREE', ['ITEM000000', 'ITEM000001', 'ITEM000005'])];
 }
 
 exports.loadAllItems = loadAllItems;
